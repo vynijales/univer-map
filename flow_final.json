@@ -1,0 +1,300 @@
+[
+    {
+        "id": "e39f5961e3f7a1f3",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a743e3e4fb81adce",
+        "type": "http in",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "url": "/alterUniversity",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "e708848c3b113b6a"
+            ]
+        ]
+    },
+    {
+        "id": "ce7f9cb31db87004",
+        "type": "http response",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "757b221a78f05c34",
+        "type": "cloudantplus in",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "cloudant": "3e597fcc95f690b1",
+        "database": "ufersa_matheusvynicius",
+        "service": "_ext_",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "eb81c92cf5888252"
+            ]
+        ]
+    },
+    {
+        "id": "1329cc89e13f85f5",
+        "type": "http in",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "url": "/getUniversities",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "757b221a78f05c34"
+            ]
+        ]
+    },
+    {
+        "id": "eb81c92cf5888252",
+        "type": "http response",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4a2b8690d095da38",
+        "type": "cloudantplus in",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "cloudant": "3e597fcc95f690b1",
+        "database": "ufersa_matheusvynicius",
+        "service": "_ext_",
+        "search": "_id_",
+        "design": "",
+        "index": "",
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "d6858e4ef25b4f9b"
+            ]
+        ]
+    },
+    {
+        "id": "d8e7826b4fbabe9c",
+        "type": "http in",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "url": "/getUniversities/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "4a2b8690d095da38"
+            ]
+        ]
+    },
+    {
+        "id": "d6858e4ef25b4f9b",
+        "type": "http response",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 630,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a88eb82d6ba631cc",
+        "type": "http in",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "url": "/postUniversity",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "78d09280720f8d9a"
+            ]
+        ]
+    },
+    {
+        "id": "f7d135be307b2389",
+        "type": "cloudantplus out",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "cloudant": "3e597fcc95f690b1",
+        "database": "ufersa_matheusvynicius",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 770,
+        "y": 420,
+        "wires": [
+            [
+                "6fe8206c4fee171e"
+            ]
+        ]
+    },
+    {
+        "id": "6fe8206c4fee171e",
+        "type": "http response",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 990,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "555730a4c84da349",
+        "type": "http in",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "url": "/deleteUniversity",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "504585da4dd2e6a3"
+            ]
+        ]
+    },
+    {
+        "id": "504585da4dd2e6a3",
+        "type": "cloudantplus out",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "cloudant": "3e597fcc95f690b1",
+        "database": "ufersa_matheusvynicius",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "delete",
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "031e2b6cad33aedf"
+            ]
+        ]
+    },
+    {
+        "id": "031e2b6cad33aedf",
+        "type": "http response",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 650,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b71eb09465d73fda",
+        "type": "split",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 550,
+        "y": 380,
+        "wires": [
+            [
+                "f7d135be307b2389"
+            ]
+        ]
+    },
+    {
+        "id": "78d09280720f8d9a",
+        "type": "switch",
+        "z": "e39f5961e3f7a1f3",
+        "name": "checkType",
+        "property": "payload.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "istype",
+                "v": "array",
+                "vt": "array"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 370,
+        "y": 400,
+        "wires": [
+            [
+                "b71eb09465d73fda"
+            ],
+            [
+                "f7d135be307b2389"
+            ]
+        ]
+    },
+    {
+        "id": "e708848c3b113b6a",
+        "type": "cloudantplus out",
+        "z": "e39f5961e3f7a1f3",
+        "name": "",
+        "cloudant": "3e597fcc95f690b1",
+        "database": "ufersa_matheusvynicius",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 390,
+        "y": 60,
+        "wires": [
+            [
+                "ce7f9cb31db87004"
+            ]
+        ]
+    },
+    {
+        "id": "3e597fcc95f690b1",
+        "type": "cloudantplus",
+        "host": "https://apikey-v2-197w65d1rfy9lg862zkzcth1icnf2mrpksd7iipozm5q:52d7981962d654d6581a40910ac203da@bbd3c0ee-d0c8-455b-bbd3-8d6d996c2c0a-bluemix.cloudantnosqldb.appdomain.cloud",
+        "name": "Matheus2410",
+        "useapikey": true,
+        "credentials": {}
+    }
+]
